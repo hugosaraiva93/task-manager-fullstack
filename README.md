@@ -1,8 +1,8 @@
 # 📝 Task Manager Fullstack
 
-Aplicação fullstack para gerenciamento de tarefas.
+Aplicação fullstack para gerenciamento de tarefas, desenvolvida com Node.js, TypeScript e Vue 3.
 
-## 🚀 Tecnologias
+## 🚀 Tecnologias utilizadas
 
 * Node.js
 * TypeScript
@@ -12,12 +12,14 @@ Aplicação fullstack para gerenciamento de tarefas.
 
 ## 📂 Estrutura do projeto
 
-* `/backend` → API REST
-* `/frontend` → Interface web
+```
+backend/   → API REST (Node + TypeScript)
+frontend/  → Interface (Vue 3)
+```
 
-## ⚙️ Como rodar
+## ⚙️ Como rodar o projeto
 
-### Backend
+### 🔧 Backend
 
 ```bash
 cd backend
@@ -25,7 +27,7 @@ npm install
 npm run dev
 ```
 
-### Frontend
+### 🎨 Frontend
 
 ```bash
 cd frontend
@@ -39,12 +41,19 @@ npm run dev
 * Listar tarefas
 * Remover tarefas
 
-## 📡 Endpoints
+## 📡 Endpoints da API
 
-* GET /tasks
-* POST /tasks
-* DELETE /tasks/:id
+* GET /tasks → listar tarefas
+* POST /tasks → criar tarefa
+* DELETE /tasks/:id → remover tarefa
+
+## 💡 Melhorias futuras
+
+* Integração com banco de dados
+* Autenticação de usuários
+* Interface mais avançada
 
 ## 👨‍💻 Autor
 
 Hugo
+
