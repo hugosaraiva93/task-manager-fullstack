@@ -23,29 +23,26 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { getTasks, addTask as apiAddTask, removeTask as apiRemoveTask } from './api'
 
-const tasks = ref([])
+const tasks = ref<any[]>([])
 const title = ref('')
 
-const API = 'http://localhost:3000/tasks'
-
 const loadTasks = async () => {
-  const res = await axios.get(API)
-  tasks.value = res.data
+  tasks.value = await getTasks()
 }
 
 const addTask = async () => {
   if (!title.value) return
-  await axios.post(API, { title: title.value })
+  await apiAddTask(title.value)
   title.value = ''
   loadTasks()
 }
 
-const removeTask = async (id) => {
-  await axios.delete(`${API}/${id}`)
+const removeTask = async (id: string | number) => {
+  await apiRemoveTask(id)
   loadTasks()
 }
 
