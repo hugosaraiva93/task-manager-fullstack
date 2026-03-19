@@ -35,10 +35,12 @@ const loadTasks = async () => {
 }
 
 const addTask = async () => {
-  if (!title.value) return
-  await apiAddTask(title.value)
+  if (!title.value.trim()) return
+
+  await apiAddTask(title.value.trim())
   title.value = ''
-  loadTasks()
+
+  await loadTasks()
 }
 
 const removeTask = async (id: string | number) => {
