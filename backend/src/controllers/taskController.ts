@@ -7,16 +7,16 @@ type Task = {
 
 let tasks: Task[] = []
 
-// 🔹 Listar tarefas
+// 🔹 Listar tarefas (FILTRANDO inválidas)
 export const getTasks = (req: Request, res: Response) => {
-  res.json(tasks)
+  const validTasks = tasks.filter(task => task.title && task.title.trim())
+  res.json(validTasks)
 }
 
 // 🔹 Criar tarefa (COM VALIDAÇÃO)
 export const createTask = (req: Request, res: Response) => {
   const { title } = req.body
 
-  // validação
   if (!title || !title.trim()) {
     return res.status(400).json({ error: 'Título é obrigatório' })
   }
